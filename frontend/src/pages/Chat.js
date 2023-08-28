@@ -10,13 +10,13 @@ const Chat = () => {
   const { sessionId , status} = useParams();
 
   // Create a socket instance using useMemo to ensure a single instance.
-  const socket = useMemo(() => io(BASE_URL, { transports: ['websocket', 'polling'] }), []);
+  const socket = useMemo(() => io('', { transports: ['websocket', 'polling'] }), []);
 
   const { userDetails, fetchUser} = useFetchUser();
 
   const fetchChatMessages = useCallback(async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/chat/${sessionId}`);
+      const response = await fetch(`/api/chat/${sessionId}`);
       const data = await response.json();
       setMessages(data.chatMessages);
     } catch (error) {
@@ -41,7 +41,7 @@ const Chat = () => {
   const handleSendMessage = async () => {
     if (inputMessage.trim() !== '') {
       try {
-        await fetch(`${BASE_URL}/api/chat/send`, {
+        await fetch(`/api/chat/send`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
