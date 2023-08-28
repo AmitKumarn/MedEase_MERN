@@ -36,7 +36,7 @@ const DoctorDetailsPage = (props) => {
                     console.error('Invalid doctor ID');
                     return;
                 }
-                const response = await fetch(`/api/doctors/${doctorId}`);
+                const response = await fetch(`${BASE_URL}/api/doctors/${doctorId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setDoctorData(data);
@@ -51,7 +51,7 @@ const DoctorDetailsPage = (props) => {
         // Fetch the reviews for the doctor
         const fetchDoctorReviews = async () => {
             try {
-                const response = await fetch(`/api/doctors/${doctorId}/fetchreviews`);
+                const response = await fetch(`${BASE_URL}/api/doctors/${doctorId}/fetchreviews`);
                 if (response.ok) {
                     const data = await response.json();
                     setReviews(data);
@@ -91,7 +91,7 @@ const DoctorDetailsPage = (props) => {
                 rating: userReview.rating,
                 reviewText: userReview.reviewText,
             };
-            const response = await fetch(`/api/doctors/${doctorId}/reviews`, {
+            const response = await fetch(`${BASE_URL}/api/doctors/${doctorId}/reviews`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
