@@ -16,7 +16,7 @@ const Chat = () => {
 
   const fetchChatMessages = useCallback(async () => {
     try {
-      const response = await fetch(`${BASE_UR}/api/chat/${sessionId}`);
+      const response = await fetch(`${BASE_URL}/api/chat/${sessionId}`);
       const data = await response.json();
       setMessages(data.chatMessages);
     } catch (error) {
@@ -41,7 +41,7 @@ const Chat = () => {
   const handleSendMessage = async () => {
     if (inputMessage.trim() !== '') {
       try {
-        await fetch(`${BASE_UR}/api/chat/send`, {
+        await fetch(`${BASE_URL}/api/chat/send`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
