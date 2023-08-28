@@ -12,7 +12,7 @@ const ConsultationDetailPage = (props) => {
   useEffect(() => {
     fetchUser();
     if (sessionId) {
-      fetch(`${BASE_URL}/api/sessions/${sessionId}`, {
+      fetch(`/api/sessions/${sessionId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const ConsultationDetailPage = (props) => {
 
   const handleEndSession = async (sessionId) => {
     try {
-      const response = await fetch(`${BASE_URL}/api/sessions/${sessionId}/end`, {
+      const response = await fetch(`/api/sessions/${sessionId}/end`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
