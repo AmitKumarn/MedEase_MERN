@@ -49,7 +49,7 @@ const StartConsultation = (props) => {
         props.showAlert("The Selected Doctor is not available", 'danger')
         return;
       }// Send a POST request to create a new consultation session
-      const response = await fetch(`${BASE_URL}/api/consultations`, {
+      const response = await fetch(`/api/consultations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
