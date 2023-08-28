@@ -10,7 +10,7 @@ const UserDashboard = (props) => {
   const [showRequests, setShowRequests] = useState(false);
   const fetchUpdatedSessions = async () => {
     try {
-      const response = await fetch(`/api/sessions?userId=${userDetails._id}&userType=${userDetails.userType}`, {
+      const response = await fetch(`${BASE_URL}/api/sessions?userId=${userDetails._id}&userType=${userDetails.userType}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const UserDashboard = (props) => {
     // Fetch sessions based on user type (doctor or patient)
     const fetchSessions = async () => {
       try {
-        const response = await fetch(`/api/sessions?userId=${userDetails._id}&userType=${userDetails.userType}`, {
+        const response = await fetch(${BASE_URL}`/api/sessions?userId=${userDetails._id}&userType=${userDetails.userType}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const UserDashboard = (props) => {
   
   const handleAvailabilityChange = async (newAvailability) => {
     try {
-      const response = await fetch(`/api/doctors/${userDetails._id}/update-availability`, {
+      const response = await fetch(`${BASE_URL}/api/doctors/${userDetails._id}/update-availability`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ const UserDashboard = (props) => {
   };
 const handleAcceptSession = async (sessionId) => {
   try {
-    const response = await fetch(`/api/sessions/${sessionId}/accept`, {
+    const response = await fetch(`${BASE_URL}/api/sessions/${sessionId}/accept`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const handleAcceptSession = async (sessionId) => {
 
 const handleRejectSession = async (sessionId) => {
   try {
-    const response = await fetch(`/api/sessions/${sessionId}/reject`, {
+    const response = await fetch(`${BASE_URL}/api/sessions/${sessionId}/reject`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
