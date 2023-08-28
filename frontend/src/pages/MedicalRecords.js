@@ -19,7 +19,7 @@ const MedicalRecordPage = (props) => {
     formData.append("upload_preset", "MedEase_profiles");
     formData.append("fcloud_name", "dytlvnbuh");
     const res = await fetch(
-      "https://api.cloudinary.com/v1_1//upload",
+      "https://api.cloudinary.com/v1_1/dytlvnbuh/upload",
       {
         method: "POST",
         body: formData,
@@ -32,7 +32,7 @@ const MedicalRecordPage = (props) => {
   const fetchMedicalRecords = useCallback(async () => {
     try {
       const response = await fetch(
-        `/api/sessions/${sessionId}/getMedicalRecord`,
+        `${BASE_URL}/api/sessions/${sessionId}/getMedicalRecord`,
         {
           method: "GET",
           headers: {
@@ -61,7 +61,7 @@ const MedicalRecordPage = (props) => {
     };
     try {
       const response = await fetch(
-        `/api/sessions/${sessionId}/AddMedicalRecords`,
+        `${BASE_URL}/api/sessions/${sessionId}/AddMedicalRecords`,
         {
           method: "POST",
           headers: {
