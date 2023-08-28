@@ -34,7 +34,7 @@ const PrescriptionPage = (props) => {
 
   const fetchPrescriptions = useCallback(async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/sessions/${sessionId}/getPrescription`,
+      const response = await fetch(`/api/sessions/${sessionId}/getPrescription`,
         {
           method: "GET",
           headers: {
@@ -63,7 +63,7 @@ const PrescriptionPage = (props) => {
       details: newPrescription.details,
     };
     try {
-      const response = await fetch(`${BASE_URL}/api/sessions/${sessionId}/AddPrescriptions`,
+      const response = await fetch(`/api/sessions/${sessionId}/AddPrescriptions`,
         {
           method: "POST",
           headers: {
