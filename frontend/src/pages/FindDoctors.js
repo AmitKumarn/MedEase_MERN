@@ -11,7 +11,7 @@ const FindDoctorsPage = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/doctors`)
+    fetch(`${BASE_URL}/api/doctors`)
       .then((response) => response.json())
       .then((data) => setDoctors(data))
       .catch((error) => console.error(error));
