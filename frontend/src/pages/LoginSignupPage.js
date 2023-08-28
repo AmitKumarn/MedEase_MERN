@@ -20,7 +20,7 @@ const LoginSignupPage = (props) => {
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch(`/api/auth/login`, {
+        const response = await fetch(`${BASE_URL}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -69,9 +69,9 @@ const LoginSignupPage = (props) => {
         };
 
         try {
-            let apiUrl = `/api/auth/createuser`;
+            let apiUrl = `${BASE_URL}/api/auth/createuser`;
             if (userType === 'doctor') {
-                apiUrl = `/api/auth/createdoctor`;
+                apiUrl = `${BASE_URL}/api/auth/createdoctor`;
             }
             const response = await fetch(apiUrl, {
                 method: 'POST',
