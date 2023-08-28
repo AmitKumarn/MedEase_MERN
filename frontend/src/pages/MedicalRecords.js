@@ -32,7 +32,7 @@ const MedicalRecordPage = (props) => {
   const fetchMedicalRecords = useCallback(async () => {
     try {
       const response = await fetch(
-        `${BASE_URL}/api/sessions/${sessionId}/getMedicalRecord`,
+        `/api/sessions/${sessionId}/getMedicalRecord`,
         {
           method: "GET",
           headers: {
@@ -61,7 +61,7 @@ const MedicalRecordPage = (props) => {
     };
     try {
       const response = await fetch(
-        `${BASE_URL}/api/sessions/${sessionId}/AddMedicalRecords`,
+        `/api/sessions/${sessionId}/AddMedicalRecords`,
         {
           method: "POST",
           headers: {
