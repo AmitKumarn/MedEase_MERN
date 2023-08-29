@@ -130,8 +130,7 @@ const DoctorDetailsPage = (props) => {
                             <h5 className="text-secondary">Bio</h5>
                             <p>{doctorData.bio}</p>
                         </div>
-                        <Link to={`/StartConsultation`} className="btn text-white mt-3" style={{ backgroundColor: "#4A55A2" }}>Start Consultation</Link>
-                    </div>
+                        {userDetails.userType==='patient' && (<Link to={`/StartConsultation`} className="btn text-white mt-3" style={{ backgroundColor: "#4A55A2" }} >Start Consultation</Link>)}
                 </div>
             ) : (<p>Loading doctor details...</p>)}
 
